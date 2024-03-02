@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 
 const Cart = ({ state, dispatch }) => {
   const { cart } = state;
-  let { total, setTotal } = useState(0);
+  let [total, setTotal] = useState(0);
 
-  //   useEffect(() => {
-  //     setTotal(
-  //       cart.reduce((acc, item) => acc + Number(item.price) * item.qty, 0)
-  //     );
-  //   }, [cart]);
+  useEffect(() => {
+    setTotal(
+      cart.reduce((acc, item) => acc + Number(item.price) * item.qty, 0)
+    );
+  }, [cart]);
 
   const changeQty = (id, qty) =>
     dispatch({
